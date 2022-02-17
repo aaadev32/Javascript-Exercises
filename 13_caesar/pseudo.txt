@@ -1,0 +1,22 @@
+caesars function:
+write a function that takes 2 parameters 
+the first parameter will be the input string we want to encipher
+the second parameter will be the amount by which the cipher will shift the inpute
+the second parameter can be positive or negative shifting the input right or left respectively in unicode
+the output will produce an enciphered string
+
+1. use a loop to iterate through the string and create an array of unicode values for each letter in the string
+
+2. create another array copying the first but adding or subtracting the unicode values in the array based of of the 2nd parameter function while also ignoring whitespace/punctuation and converting the unicode numbers to chars
+
+3. return enciphered string 
+
+caesar wrapping drawing board:
+
+i need a formula for unicode values that are beyond the upper or lower bounds of lowercase and uppercase values to start back at the beggining for example 
+
+upperbound example:
+Z = 90
+if the cipher pushes it up by 2 it will be 92 or the "\" character
+i need any cipher shifts above 90 to wrap back to A or "65" and continue to count up
+and so on if it were to reach the upper bounds again
