@@ -20,3 +20,33 @@ Z = 90
 if the cipher pushes it up by 2 it will be 92 or the "\" character
 i need any cipher shifts above 90 to wrap back to A or "65" and continue to count up
 and so on if it were to reach the upper bounds again
+
+    //makes ascii values that are lower than accepted values start again from the end
+    const upperBound = function (encipheredValue, lowerBound) {
+        let result = 0;
+        result = encipheredValue - lowerBound % 26 + lowerBound;
+        return result;
+    }
+
+    //makes ascii values that are higher than accepted values start again from the beginning 
+    const lowerBound = function (encipheredValue, upperBound) {
+        let temp = 0;
+        let result = 0
+        temp = upperBound - encipheredValue % 26;
+        result = upperBound - temp;
+        return result;
+    }
+
+    //checks for punctuation and whitespace
+    const isPuncSpace = function (unichar) {
+
+        const regex = new RE" !,";
+        let char = '';
+        let result = '';
+        char = String.fromCharCode(unichar);
+
+        if (regex.test(char) == true){
+            result = unichar;
+            return result;
+        }
+    }
