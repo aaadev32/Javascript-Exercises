@@ -4,7 +4,7 @@ const caesar = function (str, cipher) {
     let result = '';
     let plaintext = str;
 
-    
+
 
     //creates unicode array
     for (i = 0; i < plaintext.length; i++) {
@@ -21,11 +21,14 @@ const caesar = function (str, cipher) {
 
             encipheredUnicode[i] = unicode[i] + cipher;
 
-            //these nested if else statements wraps lowercase letters when the cipher pushes them beyond their upper or lower unicode bounds.
-            if (unicode[i] + cipher > 122) {
-                encipheredUnicode[i] -= 26;
-            } else if (unicode[i] + cipher < 97) {
-                encipheredUnicode[i] += 26;
+
+            while (encipheredUnicode[i] > 122 || encipheredUnicode[i] < 97) {
+
+                if (unicode[i] + cipher > 122) {
+                    encipheredUnicode[i] -= 26;
+                } else if (unicode[i] + cipher < 97) {
+                    encipheredUnicode[i] += 26;
+                }
             }
 
             //this else if statement selects uppercase letters for enciphering
@@ -33,13 +36,14 @@ const caesar = function (str, cipher) {
 
             encipheredUnicode[i] = unicode[i] + cipher;
 
-            //these nested if else statements wraps uppercase letters when the cipher pushes them beyond their upper or lower unicode bounds.
-            if (unicode[i] + cipher > 90) {
-                encipheredUnicode[i] -= 26;
-            } else if (unicode[i] + cipher < 65) {
-                encipheredUnicode[i] += 26
-            }
+            while (encipheredUnicode[i] > 90 || encipheredUnicode[i] < 65) {
+                if (unicode[i] + cipher > 90) {
 
+                    encipheredUnicode[i] -= 26;
+                } else if (unicode[i] + cipher < 65) {
+                    encipheredUnicode[i] += 26
+                }
+            }
         } else {
             //makes the cipher leave whitespace and punctuation unchanged
             encipheredUnicode[i] = unicode[i];
